@@ -1,0 +1,47 @@
+﻿<catel:Window x:Class="ShopCatel.Views.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:catel="http://catel.codeplex.com"
+              ResizeMode="CanResize"
+             Width="967" Height="570" FontFamily="Calibri">
+    <StackPanel Width="950" Height="530" Orientation="Vertical">
+        <Grid Background="#FF179BD7" Width="950" Height="86" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="203"/>
+                <ColumnDefinition Width="747"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/icon3.png" Margin="0,0,2,0" Grid.ColumnSpan="1"/>
+            <Button x:Name="btnSale" Grid.Column="1" Style="{StaticResource MainButton}" Content="Продажа товара" Margin="3,0,462,0" Height="Auto" />
+            <Button x:Name="btnSale2" Command="{Binding PreOrderWin}" Grid.Column="1" Style="{StaticResource MainButton}" Content="Оформление пред заказа" Margin="285,0,235,0" Height="Auto"/>
+            <Button x:Name="btnSale3" Command="{Binding AddWin}" Grid.Column="1" Style="{StaticResource MainButton}" Content="Новый покупатель" Margin="512,0,0,0" Height="Auto"/>
+        </Grid>
+        <Grid Width="950" Height="426">
+            <ComboBox x:Name="cmbxIDProd"   Height="25" Margin="98,70,737,331" ItemsSource="{Binding ComboIdProd}" SelectedItem="{Binding SelectedIdProd}" />
+            <DataGrid x:Name="dataGridProd"  HorizontalAlignment="Left" Height="162" Margin="372,79,0,0" VerticalAlignment="Top" Width="484" ItemsSource="{Binding ProductCollection}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding ID_Product}" Header="№ прод" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding ID_Supplier}" Header="№ постав" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Group_of_product}" Header="Группа продукта" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Name_of_product}" Header="Имя продукта" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Material_of_product}" Header="Материал" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Manufacturer_of_product}" Header="Страна произв" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Price_of_product}" Header="Цена" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="lblIDProd" Content="Выберите товар" HorizontalAlignment="Left" Margin="110,45,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbBxIDSel"  SelectedItem="{Binding SelectedIdBuyer}" HorizontalAlignment="Left" Margin="98,141,0,0" VerticalAlignment="Top" Width="120" Height="25" ItemsSource="{Binding ComboIdBuyer}" />
+            <Label x:Name="lblCount" Content="Количество" HorizontalAlignment="Left" Margin="123,182,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBxCount" Text="{Binding MainWindowCount}"   HorizontalAlignment="Left" Height="25" Margin="98,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="lblIDSel" Content="Выберите код покупателя" HorizontalAlignment="Left" Margin="98,111,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnAccept" Style="{StaticResource AcceptButton}" Command="{Binding Checkout}" Content="Оформить покупку" HorizontalAlignment="Left" Margin="390,346,0,0" VerticalAlignment="Top" Width="115" Height="42" />
+            <TextBox x:Name="txtBoxPrice" Text="{Binding MainWindowPrice}" HorizontalAlignment="Left" Height="25" Margin="98,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="lblPrice" Content="Цена" HorizontalAlignment="Left" Margin="134,247,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label" Content="Актуальные товары" HorizontalAlignment="Left" Margin="545,45,0,0" VerticalAlignment="Top" FontSize="14.667" Width="138"/>
+        </Grid>
+    </StackPanel>
+</catel:Window>
+
+
