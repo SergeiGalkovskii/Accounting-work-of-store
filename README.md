@@ -4,6 +4,7 @@ Application has got functions like:
 * add a new order;
 * add a new buyer;
 * add a new pre-order.
+
 WPF application using Catel Framework.
 Architecture built using MVVM pattern.
 Data stored in MS SQL database.
